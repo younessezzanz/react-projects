@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import logo from "../images/logo.png";
+import { Link } from "react-router-dom";
 
 function NavBar({ search }) {
   const onSearch = (word) => {
@@ -12,9 +13,9 @@ function NavBar({ search }) {
       <Container>
         <Row className="pt-2 ">
           <Col xs="2" lg="1">
-            <a href="/">
+            <Link to="/">
               <img className="logo" src={logo} alt="dfs" />
-            </a>
+            </Link>
           </Col>
           <Col xs="10" lg="11" className=" d-flex align-items-center">
             <div className="search  w-100">

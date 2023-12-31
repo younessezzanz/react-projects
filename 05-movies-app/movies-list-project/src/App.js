@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Container } from "react-bootstrap";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import { instance, API_LANG, API_PAGE } from "./Axios";
@@ -51,25 +50,33 @@ const App = () => {
 
   return (
     <div className="font color-body ">
-      <NavBar search={search} />
-      <Container>
-        <BrowserRouter>
-          <Routes>
-            <Route
-              path="/"
-              element={
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <NavBar search={search} />
                 <MoviesList
                   movies={movies}
                   getPage={getPage}
                   pageCount={pageCount}
                 />
-              }
-            />
+              </>
+            }
+          />
 
-            <Route path="/movie/:id" element={<MovieDetails />} />
-          </Routes>
-        </BrowserRouter>
-      </Container>
+          <Route
+            path="/movie/:id"
+            element={
+              <>
+                <NavBar search={search} />
+                <MovieDetails />
+              </>
+            }
+          />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 };
