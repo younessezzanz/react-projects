@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Container, Col, Row } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
 
-import { instance, API_KEY } from "../Axios";
-import requests from "../Requests";
+import { instance, API_KEY } from "../api/Axios";
+import requests from "../api/Requests";
 
 const MovieDetails = () => {
   const param = useParams();

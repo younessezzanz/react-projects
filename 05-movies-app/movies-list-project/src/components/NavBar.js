@@ -1,11 +1,26 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { Container, Row, Col } from "react-bootstrap";
+
 import logo from "../images/logo.png";
 import { Link } from "react-router-dom";
+import { getAllMovies, getMoviesSearch } from "../redux/actions/moviesAction";
 
-function NavBar({ search }) {
+function NavBar() {
+  const dispatchMovies = useDispatch();
+
   const onSearch = (word) => {
     search(word);
+  };
+
+  // To search in api
+  const search = async (word) => {
+    if (word === "") {
+      dispatchMovies(getAllMovies());
+    } else {
+      //query = The Family Plan
+      dispatchMovies(getMoviesSearch(word));
+    }
   };
 
   return (
